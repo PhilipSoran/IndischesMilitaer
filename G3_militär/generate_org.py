@@ -34,7 +34,7 @@ nodes = {
 }
 
 # === Graphviz Digraph erstellen ===
-dot = Digraph(comment='Indian Military Structure', format='png')
+dot = Digraph(comment='Indian Military Structure')
 dot.attr(rankdir='TB')  # Top-Bottom Layout
 dot.attr('node', shape='box', style='filled,rounded', color='black', fontname='Arial', fontsize='12')
 
@@ -44,7 +44,6 @@ level_colors = {1:'#fff7e6', 2:'#dce6f1', 3:'#f2f2f2'}
 # Knoten hinzufügen
 for nid, n in nodes.items():
     parent = n['parent']
-    # Level bestimmen: 1 = root, 2 = direkt unter root, 3 = unter Level2
     if parent is None:
         level = 1
     elif nodes[parent]['parent'] is None:
@@ -58,11 +57,18 @@ for nid, n in nodes.items():
     if n['parent']:
         dot.edge(str(n['parent']), str(nid))
 
-# Dateien speichern
+# === Dateien speichern ===
 svg_path = BASE / 'org_chart_graphviz.svg'
 png_path = BASE / 'org_chart_graphviz.png'
 
-dot.render(svg_path.stem, directory=BASE, cleanup=True)  # PNG erstellt automatisch
+# SVG erstellen
+dot.format = 'svg'
+dot.render(svg_path.stem, directory=BASE, cleanup=True)
+
+# PNG erstellen
+dot.format = 'png'
+dot.render(png_path.stem, directory=BASE, cleanup=True)
+
 print("Organigramm erstellt!")
 print(f"SVG: {svg_path}")
 print(f"PNG: {png_path}")
