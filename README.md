@@ -10,7 +10,7 @@ Die Anleitung ist so geschrieben, dass jede Person, auch ohne IT-Wissen, das Skr
 
 ```bash
 # GitHub Repository klonen
-git clone https://github.com/DEIN_USERNAME/military_org.git
+git clone [[https://github.com/DEIN_USERNAME/military_org.git](https://github.com/PhilipSoran/IndischesMilitaer)](https://github.com/PhilipSoran/IndischesMilitaer)
 cd military_org
 ```
 
