@@ -102,6 +102,3 @@ INSERT INTO positionen (bezeichnung, einheit_id, person_id, von_datum, ist_komma
 -- Kommandostrukturen
 INSERT INTO kommandostrukturen (vorgesetzte_position_id, untergebene_position_id, beziehungstyp) VALUES
 (1, 2, 'direkt');
-
--- Teständerung sichtbar machen
-UPDATE einheiten SET name = 'TestEinheit123' WHERE id = 1;
